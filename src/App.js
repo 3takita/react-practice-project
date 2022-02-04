@@ -1,10 +1,26 @@
+import React from "react";
 import "./styles.css";
+import Count from "./Count";
 
 export default function App() {
+  const [count, setCount] = React.useState(0);
+
+  function add() {
+    setCount((prevCount) => prevCount + 1);
+  }
+  function subtract() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className="counter">
+      <button className="counter--minus" onClick={subtract}>
+        –
+      </button>
+      <Count number={count} />
+      <button className="counter--plus" onClick={add}>
+        +
+      </button>
     </div>
   );
 }
